@@ -1,0 +1,20 @@
+{
+  "name": "estudantes-app-alunos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "estudantes.js",
+  "scripts": {
+    "serve": "http-server . -p 3000 -c-1 --silent",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.21.1",
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Estudantes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Cadastro de Estudantes</h1>
+    <p class="subtitulo">
+      Estudantes cadastrados: <span class="contador" id="contador">0</span>
+      · dados mantidos em memória
+    </p>
+  </header>
+
+  <main class="painel">
+    <!-- ═════════════ FORMULÁRIO ═════════════ -->
+    <form id="formEstudante" class="cartao" novalidate>
+      <h2 id="tituloForm">Novo estudante</h2>
+      <input type="hidden" id="estudanteId">
+
+      <label for="estudanteNome">Nome *</label>
+      <input type="text" id="estudanteNome" placeholder="Ex.: Ana Souza">
+
+      <label for="estudanteEmail">E-mail *</label>
+      <input type="text" id="estudanteEmail" placeholder="ana@email.com">
+
+      <label for="estudanteTelefone">Telefone *</label>
+      <input type="text" id="estudanteTelefone" placeholder="(88) 99999-0000">
+
+      <label for="estudanteEndereco">Endereço</label>
+      <textarea id="estudanteEndereco" rows="2"
+                placeholder="Rua, número, bairro, cidade (opcional)"></textarea>
+
+      <p class="dica">* campos obrigatórios</p>
+
+      <div class="botoes">
+        <button type="submit" id="btnSalvar" class="btn btn-primario">Cadastrar</button>
+        <button type="button" id="btnCancelar" class="btn btn-secundario" hidden>Cancelar</button>
+      </div>
+      <p id="mensagem" class="mensagem" role="status"></p>
+    </form>
+
+    <!-- ═════════════ LISTAGEM ═════════════ -->
+    <div class="cartao">
+      <div class="cabecalho-lista">
+        <h2>Estudantes</h2>
+        <input type="search" id="busca" placeholder="Buscar por nome, e-mail ou matrícula">
+      </div>
+      <div class="rolagem">
+        <table id="tabelaEstudantes">
+          <thead>
+            <tr>
+              <th>Matrícula</th><th>Nome</th><th>E-mail</th>
+              <th>Telefone</th><th>Endereço</th><th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="vazio" class="vazio">Nenhum estudante cadastrado</p>
+    </div>
+  </main>
+
+  <!-- A ordem importa: o Store precisa existir antes da tela -->
+  <script src="store.js"></script>
+  <script src="estudantes.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* styles.css — Cadastro de Estudantes */
+
+:root {
+  --fundo: #f5f7f6;
+  --cartao: #ffffff;
+  --texto: #1c2b27;
+  --suave: #5d6b67;
+  --borda: #d6e0dc;
+  --primaria: #0f766e;
+  --primaria-escura: #0b5d57;
+  --perigo: #c2410c;
+  --sucesso-fundo: #e2f6ec;
+  --sucesso-texto: #166534;
+  --erro-fundo: #fdeceb;
+  --erro-texto: #b42318;
+  --raio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+.topo {
+  background: var(--primaria);
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+}
+.topo h1 { margin: 0; font-size: 1.8rem; }
+.subtitulo { margin: 4px 0 0; opacity: .9; }
+.contador {
+  display: inline-block;
+  min-width: 26px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .22);
+  font-weight: 700;
+}
+
+.painel {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px 40px;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px;
+  min-width: 0;
+}
+.cartao h2 { margin: 0 0 12px; font-size: 1.15rem; }
+
+label {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+input, textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font: inherit;
+  font-size: .95rem;
+  background: #fff;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus {
+  outline: 2px solid var(--primaria);
+  outline-offset: 1px;
+}
+.campo-erro {
+  border-color: var(--erro-texto);
+  background: var(--erro-fundo);
+}
+.dica { margin: 8px 0 0; font-size: .8rem; color: var(--suave); }
+
+.botoes { display: flex; gap: 8px; margin-top: 16px; }
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: .95rem;
+  cursor: pointer;
+}
+.btn-primario { background: var(--primaria); color: #fff; }
+.btn-primario:hover { background: var(--primaria-escura); }
+.btn-secundario { background: #e3e8e6; color: var(--texto); }
+.btn-perigo { background: var(--perigo); color: #fff; }
+.acoes { white-space: nowrap; }
+.acoes .btn { padding: 5px 10px; font-size: .85rem; margin-right: 4px; }
+
+.mensagem { margin: 14px 0 0; }
+.mensagem.sucesso, .mensagem.erro { padding: 9px 12px; border-radius: 8px; }
+.mensagem.sucesso { background: var(--sucesso-fundo); color: var(--sucesso-texto); }
+.mensagem.erro { background: var(--erro-fundo); color: var(--erro-texto); }
+
+.cabecalho-lista {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cabecalho-lista h2 { margin: 0; }
+.cabecalho-lista input { max-width: 300px; }
+
+.rolagem { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--borda);
+  font-size: .9rem;
+  vertical-align: top;
+}
+th { color: var(--suave); font-weight: 600; white-space: nowrap; }
+td[data-cy=col-matricula] { font-family: ui-monospace, Consolas, monospace; white-space: nowrap; }
+td[data-cy=col-telefone] { white-space: nowrap; }
+
+.vazio { color: var(--suave); text-align: center; padding: 20px 0; margin: 0; }
+.vazio[hidden] { display: none; }
+
+@media (max-width: 860px) {
+  .painel { grid-template-columns: 1fr; }
+}
